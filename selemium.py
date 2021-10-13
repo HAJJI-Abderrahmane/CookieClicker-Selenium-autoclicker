@@ -1,0 +1,38 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from threading import Thread
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import keyboard
+# exec_path_chrome = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"
+exec_path_driver = "C:/Users/MoonOrchid/Desktop/test3/cookieclickerautomatic/chromedriver.exe"
+
+options = webdriver.ChromeOptions() 
+
+options.add_argument('--user-data-dir=C:/Users/MoonOrchid/AppData/Local/Google/Chrome/User Data')
+
+options.add_argument('--profile-directory=Profile 1')
+driver = webdriver.Chrome(executable_path = exec_path_driver, options = options) #Chrome_Options is deprecated. So we use options instead.
+
+driver.get("https://orteil.dashnet.org/cookieclicker/")
+# while
+# driver.find_element_by_id("bigCookie").click()
+bb=driver.find_element_by_id("shimmers")
+
+def function():
+
+	# if keyboard.is_pressed("up arrow"):  # if key 'q' is pressed 
+
+	aa=driver.find_element_by_id("bigCookie")
+	while(True):
+		try:
+			goldencookie=bb.find_element_by_css_selector('[alt="Golden cookie"]')
+			goldencookie.click()
+		except:
+			pass
+		aa.click()
+		if keyboard.is_pressed("²"):
+			break
+t1 = Thread(target=function)
+t1.start()
