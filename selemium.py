@@ -35,6 +35,11 @@ def function():
 				goldencookie.click()
 			except:
 				pass
+			try:
+				wrathcookie=bb.find_element_by_css_selector('[alt="Wrath cookie"]')
+				wrathcookie.click()
+			except:
+				pass
 			aa.click()
 			if keyboard.is_pressed("²"):
 				running=False
