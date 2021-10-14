@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from threading import Thread
-
+import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import keyboard
@@ -23,16 +23,22 @@ bb=driver.find_element_by_id("shimmers")
 def function():
 
 	# if keyboard.is_pressed("up arrow"):  # if key 'q' is pressed 
-
+	running=True
 	aa=driver.find_element_by_id("bigCookie")
 	while(True):
-		try:
-			goldencookie=bb.find_element_by_css_selector('[alt="Golden cookie"]')
-			goldencookie.click()
-		except:
-			pass
-		aa.click()
 		if keyboard.is_pressed("²"):
-			break
+			running=True
+			time.sleep(0.2)
+		while(running):
+			try:
+				goldencookie=bb.find_element_by_css_selector('[alt="Golden cookie"]')
+				goldencookie.click()
+			except:
+				pass
+			aa.click()
+			if keyboard.is_pressed("²"):
+				running=False
+				time.sleep(0.2)
+
 t1 = Thread(target=function)
 t1.start()
