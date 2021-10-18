@@ -31,16 +31,21 @@ def function():
 			time.sleep(0.2)
 		while(running):
 			try:
-				goldencookie=bb.find_element_by_css_selector('[alt="Golden cookie"]')
-				goldencookie.click()
+				bb.find_element_by_css_selector('[alt="Golden cookie"]').click()
 			except:
 				pass
 			try:
-				wrathcookie=bb.find_element_by_css_selector('[alt="Wrath cookie"]')
-				wrathcookie.click()
+				bb.find_element_by_css_selector('[alt="Wrath cookie"]').click()
 			except:
 				pass
-			aa.click()
+			try:
+				bb.find_element_by_css_selector('[alt="Reindeer"]').click()
+			except:
+				pass
+			try:
+				aa.click()
+			except:
+				pass
 			if keyboard.is_pressed("²"):
 				running=False
 				time.sleep(0.2)
